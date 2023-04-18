@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { ElRate } from 'element-plus';
+import changeUnitMoney from '../other/moneyUnit'
 
 import 'swiper/css';
+import 'swiper/css/bundle';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
@@ -15,7 +17,7 @@ const onSwiper = (swiper: any) => {
 const onSlideChange = () => {
     console.log('slide change');
 }
-const modules = [Navigation, Pagination, Scrollbar, A11y]
+const modules = [Navigation, Pagination, Scrollbar, A11y, Autoplay, EffectCards]
 const productList = [
     {
         id: 1,
@@ -59,6 +61,27 @@ const productList = [
         price: 1300000,
         sale: 1485000
     },
+    {
+        id: 7,
+        image: "https://golfshark.vn/wp-content/uploads/2022/09/Tham-tap-golf-TL017-1485k-SALES-1200k-1-1.jpg",
+        title: 'Thảm tập golf TL020 hàng chính hãng PGM cao cấp',
+        price: 1300000,
+        sale: 1485000
+    },
+    {
+        id: 8,
+        image: "https://golfshark.vn/wp-content/uploads/2022/09/Tham-tap-golf-TL017-1485k-SALES-1200k-1-1.jpg",
+        title: 'Thảm tập golf TL020 hàng chính hãng PGM cao cấp',
+        price: 1300000,
+        sale: 1485000
+    },
+    {
+        id: 9,
+        image: "https://golfshark.vn/wp-content/uploads/2022/09/Tham-tap-golf-TL017-1485k-SALES-1200k-1-1.jpg",
+        title: 'Thảm tập golf TL020 hàng chính hãng PGM cao cấp',
+        price: 2345600,
+        sale: 1025600
+    },
 ]
 
 const rate = ref(4)
@@ -68,16 +91,20 @@ const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
     <swiper
       :modules="modules"
       :slides-per-view="4"
+      :autoplay="{
+        delay: 3000,
+        disableOnInteraction: false,
+      }"
       navigation
       @swiper="onSwiper"
-      @slideChange="onSlideChange"
+      @slideChange="onSlideChange"      
     >
         <swiper-slide
             v-for="item in productList"
             :key="item.id"
-            class="border border-transparent hover:border-[#ccc] "
+            class="border border-transparent hover:border-[#ccc]"
         >      
-            <div class="col-inner w-[227px]">
+            <div class="">
                 <div class="p-4 flex justify-center">
                     <img  
                         class="w-[168px] h-[168px] hover-image"          
@@ -86,11 +113,11 @@ const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
                     >
                 </div>
                 <div class="p-4 text-center">
-                    <h2 class="text-[#db0000]">{{ item.title }}</h2>
+                    <h2 class="hover:text-[#db0000]">{{ item.title }}</h2>
                     <el-rate v-model="rate" disabled :colors="colors" />
-                    <div class="flex gap-2">
-                        <span>{{ item.sale }}</span>
-                        <span>{{ item.price}}</span>
+                    <div class="flex gap-2 justify-center items-center">
+                        <span class="line-through text-gray-400">{{ changeUnitMoney(item.sale, 'VND') }}</span>
+                        <span class="text-[#DB0000] font-bold text-lg">{{ changeUnitMoney(item.price, 'VND')}}</span>
                     </div>
                 </div>
             </div>
@@ -99,7 +126,7 @@ const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
 </template>
 
 <style scoped>
-.col-inner{
+/* .col-inner{
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -110,16 +137,13 @@ const colors = ref(['#99A9BF', '#F7BA2A', '#FF9900'])
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
-}
-/* .col-inner:hover{
-    border: 1px solid #ddd;
-    overflow: hidden;
-    transition: all 0.3s;
-    position: relative;
-    background-color: #fff;
 } */
 .hover-image:hover{
     transition: all .3s;
     transform: scale(1.1);
+}
+.swiper-slide {
+    /* width: 250px !important; */
+    cursor: pointer;
 }
 </style>

@@ -3,7 +3,7 @@ import { ElButton } from 'element-plus';
 
 </script>
 <template>
-    <div class="flex justify-center text-center p-4">
+    <div class="flex justify-center text-center p-8">
         <div class="max-w-[1230px] title-center">
             <h1 class="font-bold text-2xl">PHỤ KIỆN GOLF</h1>
             <p class="pb-2">Sản phẩm mới được cập nhật thường xuyên hàng ngày</p>            
@@ -15,7 +15,7 @@ import { ElButton } from 'element-plus';
         </div>
     </div>
     <div class="flex justify-center text-center p-4">
-        <div class="max-w-[1230px]">
+        <div class="max-w-[1230px] p-8">
             <button class="readmore-all"><span class="text-white">Xem tất cả ></span></button>
         </div>
     </div>

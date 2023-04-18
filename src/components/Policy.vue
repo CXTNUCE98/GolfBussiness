@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <div class="flex gap-4 justify-center max-w-[1230px]">
+  <div class="flex gap-4 justify-center max-w-[1230px] pt-8 pb-8" >
     <div class="flex gap-4 pt-6 max-w-[25%]">
       <div class="min-w-[32px]"><img class="w-[32px] h-[32px]" src="https://golfshark.vn/wp-content/uploads/2022/07/policy_icon1.webp" alt=""></div>
       <div>
