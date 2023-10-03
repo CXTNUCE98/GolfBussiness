@@ -84,11 +84,9 @@ onMounted(() => {
         <el-button @click="createPost">Create User</el-button>
         <el-table :data="tableData" border style="width: 100%">
             <el-table-column prop="id" label="ID" width="100" />
-            <el-table-column prop="name" label="Name" width="180" />
-            <el-table-column prop="address" label="Address" />
-            <el-table-column prop="phone" label="phone" />
-            <el-table-column prop="username" label="username" />
-            <el-table-column prop="website" label="website" />
+            <el-table-column prop="userId" label="User Id" width="180" />
+            <el-table-column prop="title" label="Title" />
+            <el-table-column prop="body" label="Body" />
             <el-table-column align="right">
                 <template #header>
                     <el-input v-model="search" size="small" placeholder="Type to search" />
