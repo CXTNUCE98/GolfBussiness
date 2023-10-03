@@ -10,6 +10,7 @@ const _info = computed(() => {
 const showInfo = ref(false);
 </script>
 <template>
+
   <div class="h-full">
   <div @mouseover="showInfo = true" @mouseleave="showInfo = false">
     <img class="bg-cover" :src="_info?.src" alt="" />

@@ -8,6 +8,7 @@ import GolfAccessories from '../pages/GolfAccessories.vue'
 import GolfFashion from '../pages/GolfFashion.vue'
 import News from '../pages/News.vue'
 import Contact from '../pages/Contact.vue'
+import CRUD from '../pages/CRUD.vue'
 
 export const router = createRouter({
     history: createWebHistory(),
@@ -50,5 +51,9 @@ export const router = createRouter({
             }, 
           ]
         },
+        {
+            path: '/crud',
+            component: CRUD,
+        }
       ]
 })

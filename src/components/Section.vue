@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ElButton } from 'element-plus';
 import {  computed } from 'vue';
+import { router } from '../router/router';
 const props = defineProps({
   title: String,
   des: String
@@ -14,6 +15,10 @@ const des = computed(() => {
     return props.des
 })
 
+function goToCRUD() {
+    
+    router.push('/crud')
+}
 </script>
 <template>
     <div class="flex justify-center text-center p-8">
@@ -35,6 +40,8 @@ const des = computed(() => {
     <div class="flex justify-center text-center p-4">
         <div class="max-w-[1230px] p-8">
             <button class="readmore-all"><span class="text-white">Xem tất cả ></span></button>
+    <el-button type="primary" @click="goToCRUD">Redirect CRUD</el-button>
+
         </div>
     </div>
 </template>
